@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #111110;
+  --color-foreground: #f8f7f1;
+  --color-card: #1c1c19;
+  --color-border: #41403a;
+  --color-input: #575449;
+  --color-ring: #ffdd4b;
+  --color-accent: #ffdd4b;
+  --color-primary: #ffdd4b;
+  --color-ink: #17150d;
+  --color-muted: #282720;
+  --color-muted-foreground: #bbb9ae;
+  --color-rank-1: #ffdd4b;
+  --color-rank-2: #c8d2da;
+  --color-rank-3: #ebaf79;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.sport-heading {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+}
+
+.event-banner {
+  background:
+    linear-gradient(105deg, #18170f 7%, #292513 62%, #443708),
+    var(--color-background);
+}
+
+.event-banner::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background:
+    repeating-linear-gradient(126deg, transparent 0 16px, #11111035 16px 18px),
+    linear-gradient(126deg, transparent 0 51%, #ffdd4b50 51% 52%, transparent 52% 57%, #ffdd4b 57% 85%, #ebba19 85%);
+  mask-image: linear-gradient(90deg, transparent 35%, black);
+}
+
+@media (max-width: 639px) {
+  .event-banner::before {
+    opacity: 0.26;
+  }
+}
+
+.timer-card {
+  container-type: inline-size;
+}
+
+.timer-digits {
+  font-size: clamp(3rem, 23cqw, 10rem);
+}
+
+.timer-digits-long {
+  font-size: clamp(2.5rem, 17cqw, 10rem);
+}
+
+.timer-display .timer-digits {
+  font-size: min(32cqw, 48dvh);
+}
+
+.timer-display .timer-digits-long {
+  font-size: min(23cqw, 48dvh);
+}
+
+.timer-display .timer-title {
+  font-size: clamp(1.5rem, 5cqw, 4rem);
+  line-height: 1;
+}
+
+.timer-display[data-multiple-rows] .timer-digits {
+  max-width: 100%;
+  font-size: min(32cqw, 29dvh);
+}
+
+.timer-display[data-multiple-rows] .timer-digits-long {
+  font-size: min(23cqw, 29dvh);
+}
